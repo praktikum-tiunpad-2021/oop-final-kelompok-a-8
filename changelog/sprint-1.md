@@ -11,21 +11,22 @@
 ## Sprint Overview
 | Planned (n) | Completed (n) |
 | ----------- | ------------- |
-| 1           | 1             |
+| 3           | 1             |
 
 ## Sprint 1 Backlog
 
-| ID  | Snake Game          | Asignee  | Status |
-| --- | ------------------- | -------- | ------ |
-| 1.1 | Preparing base code | Andyka   | DONE   |
-| 1.2 | Make the x          | John Doe | FAILED |
+| ID  | Snake Game                             | Asignee | Status |
+| --- | -------------------------------------- | ------- | ------ |
+| 1.1 | Preparing base code                    | Andyka  | DONE   |
+| 1.2 | Making class of food, snake, and point | Affan   | FAILED |
+| 1.3 | Making Head of the snake from 1 to 5   | Rheza   | FAILED |
 
 ## Retrospective 
 
-Sprint pertama masih bingung untuk apa yang harus dikerjakan, tiap anggota masih explorasi mengenai javafx dan juga game snake
+The first sprint was still confused as to what to do, each member was still exploring about JavaFX and the snake game. The team tried a bit of coding from a few references and there's still a lot to learn
 
 ## Next Sprint Backlog (Sprint 2)
-| ID  | Title/Desc      | Asignee  |
-| --- | --------------- | -------- |
-| 2.1 | Preparing the x | Jane Doe |
-| 2.2 | Make the x      | John Doe |
+| ID  | Title/Desc                           | Asignee |
+| --- | ------------------------------------ | ------- |
+| 2.1 | Make the body of snake with length 5 | Andyka  |
+| 2.2 | Make the game can run                | Affan   |
