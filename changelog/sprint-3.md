@@ -4,9 +4,9 @@
 ## Team (Insert your name)
 | NPM           | Name        |
 | ------------- |-------------|
-| 140810xx00xx  | John Doe    |
-| 140810xx00xx  | Jane Doe    |
-| 140810xx00xx  | Lorem Ipsum |
+| 140810200003  | Affan RK    |
+| 140810200023  | Rheza PA    |
+| 140810200061  | Andyka BP   |
 
 ## Sprint Overview
 | Planned (n)   | Completed (n) |
