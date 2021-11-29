@@ -1,6 +1,5 @@
 # Scrum Report (Sprint 3)
-
-| From dd/mm/yyyy to dd/mm/yyyy
+| From 1/12/2021 to 7/12/2021
 
 ## Team (Insert your name)
 
@@ -14,7 +13,7 @@
 
 | Planned (n) | Completed (n) |
 | ----------- | ------------- |
-| n           | n             |
+| 4           | 0             |
 
 ## Sprint 3 Backlog
 
@@ -27,4 +26,4 @@
 
 ## Retrospective
 
-Sprint kemarin dianggap terlalu sedikit sehingga diperlukan adanya penyesuaian tugas. Lorem ipsum dolor sit amet
+Sprint kemarin menyelesaikan game agar fungsional. Sprint 3 ingin memperbagus dan mengimplementasi hal yang belum terimplementasi.
