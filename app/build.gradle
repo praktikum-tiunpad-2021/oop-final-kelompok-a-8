@@ -27,10 +27,10 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'pbo.snake.SnakeGame'
+    mainClass = 'pbo.project.App'
 }
 
-javafx {
-    version = "16"
-    modules = ['javafx.controls','javafx.fxml']
+javafx{
+    version = "14.0.2.1"
+    modules = ['javafx.controls', 'javafx.fxml']
 }
