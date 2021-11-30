@@ -139,25 +139,25 @@ public class Controler implements Initializable {
         switch (direction) {
             case up:
                 snake.get(0).y--;
-                if (snake.get(0).y < 0) {
+                if (snake.get(0).y <= 0) {
                     gameOver = true;
                 }
                 break;
             case down:
                 snake.get(0).y++;
-                if (snake.get(0).y > height) {
+                if (snake.get(0).y >= height) {
                     gameOver = true;
                 }
                 break;
             case left:
                 snake.get(0).x--;
-                if (snake.get(0).x < 0) {
+                if (snake.get(0).x <= 0) {
                     gameOver = true;
                 }
                 break;
             case right:
                 snake.get(0).x++;
-                if (snake.get(0).x > width) {
+                if (snake.get(0).x >= width) {
                     gameOver = true;
                 }
                 break;
@@ -188,23 +188,23 @@ public class Controler implements Initializable {
         gc.fillText("Score: " + score, 10, 30);
 
         // random foodcolor
-        Color cc = Color.WHITE;
+        Color cc = Color.rgb(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
 
         switch (foodcolor) {
             case 0:
-                cc = Color.PURPLE;
+                cc = Color.rgb(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
                 break;
             case 1:
-                cc = Color.LIGHTBLUE;
+                cc = Color.rgb(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
                 break;
             case 2:
-                cc = Color.YELLOW;
+                cc = Color.rgb(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));           
                 break;
             case 3:
-                cc = Color.PINK;
+                cc = Color.rgb(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));            
                 break;
             case 4:
-                cc = Color.ORANGE;
+                cc = Color.rgb(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));              
                 break;
         }
         gc.setFill(cc);
@@ -212,9 +212,11 @@ public class Controler implements Initializable {
 
         // snake color
         for (Corner c : snake) {
-            gc.setFill(Color.LIGHTGREEN);
+            // warna border
+            gc.setFill(Color.WHITE);
             gc.fillRect(c.x * cornersize, c.y * cornersize, cornersize - 1, cornersize - 1);
-            gc.setFill(Color.GREEN);
+            // warna body
+            gc.setFill(Color.RED);
             gc.fillRect(c.x * cornersize, c.y * cornersize, cornersize - 2, cornersize - 2);
 
         }
