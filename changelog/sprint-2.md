@@ -43,9 +43,10 @@ Sprint kemarin melakukan coding ulang. Menggunakan javaFX membuat tampilan game 
 
 ## Next Sprint Backlog (Sprint 3)
 
-| ID  | Title/Desc                                     | Asignee                |
-| --- | ---------------------------------------------- | ---------------------- |
-| 3.1 | Implement Modular                              | Andyka                 |
-| 3.2 | Implement Start New Game Button with Space Bar | Rheza                  |
-| 3.3 | Implement Re-Start Game with Enter             | Affan                  |
-| 3.4 | Implement Leaderboard                          | Andyka, Affan, & Rheza |
+| ID  | Title/Desc                                     | Asignee  |
+| --- | ---------------------------------------------- | -------- |
+| 3.1 | Implement Modular                              | Andyka   |
+| 3.2 | Implement Start New Game Button with Space Bar | Rheza    |
+| 3.3 | Implement Re-Start Game with Enter             | Affan    |
+| 3.4 | Implement Leaderboard                          | Andyka   |
+| 3.5 | Membuat UML                                    | Affan    |
