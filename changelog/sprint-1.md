@@ -23,10 +23,25 @@
 
 ## Retrospective 
 
-The first sprint was still confused as to what to do, each member was still exploring about JavaFX and the snake game. The team tried a bit of coding from a few references and there's still a lot to learn
+Terjadi miskonsepsi, sehingga harus coding ulang menjadi javaFX dari java swing.
 
 ## Next Sprint Backlog (Sprint 2)
-| ID  | Title/Desc                           | Asignee |
-| --- | ------------------------------------ | ------- |
-| 2.1 | Make the body of snake with length 5 | Andyka  |
-| 2.2 | Make the game can run                | Affan   |
+| ID  | Title/Desc                            | Asignee |
+| --- | ------------------------------------- | ------- |
+| 2.1  | Make the body of snake with length 5 | Andyka  |
+| 2.2  | Make the game can run                | Affan   |
+| 2.3  | Recoding                             | Rheza   |
+| 2.4  | Implement Controller                 | Affan   |
+| 2.5  | Implement Scene Builder              | Andyka  |
+| 2.6  | Implement Snake Pointer              | Rheza   |
+| 2.7  | Implement Start Snake                | Affan   |
+| 2.8  | Implement Controller Game            | Andyka  |
+| 2.9  | Implement Snake Body                 | Rheza   |
+| 2.10 | Implement Game Over Text             | Affan   |
+| 2.11 | Implement Snake while run            | Andyka  |
+| 2.12 | Implement Collisions                 | Rheza   |
+| 2.13 | Implement Food and Random Food Color | Affan   |
+| 2.14 | Implement Self Destroy               | Andyka  |
+| 2.15 | Implement Score                      | Rheza   |
+| 2.16 | Implement Snake Color                | Affan   |
+| 2.17 | Implement Set Random Food Spawn      | Andyka  |

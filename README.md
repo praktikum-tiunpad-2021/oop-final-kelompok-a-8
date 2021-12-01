@@ -1,10 +1,9 @@
 # Snake Game
-Implementasi dari game terkenal yaitu Snake dimana ada seekor ular yang dapat diarahkan untuk memakan buah. Dan jika ular tersebut memakan buah, panjangnya akan bertambah.
 This repository is a final project (Java GUI) from Object-Oriented Programming Class, Teknik Informatika Universitas Padjadjaran. 
 
 [Challenge Guidelines](challenge-guideline.md)
 
-**Please create a description for this project here**
+**Implementasi dari game terkenal yaitu Snake dimana ada seekor ular yang dapat diarahkan untuk memakan buah. Dan jika ular tersebut memakan buah, panjangnya akan bertambah.**
 
 ## Credits
 | NPM          | Name                       |
@@ -14,21 +13,37 @@ This repository is a final project (Java GUI) from Object-Oriented Programming C
 | 140810200061 | Andyka Baswara Putra       |
 
 ## Change log
-- **[Sprint Planning](changelog/sprint-planning.md) - (planning date)** 
-   -  Short changes 1
-   - Short changes 2
+- **[Sprint Planning](changelog/sprint-planning.md) - (17/11/2021)** 
+   - Planning
 
-- **[Sprint 1](changelog/sprint-1.md) - (date from x until x)** 
-   - Short changes 1
-   - Short changes 2
+- **[Sprint 1](changelog/sprint-1.md) - (17/11/2021 - 23/11/2021)** 
+   - Preparing base code
 
-- **[Sprint 2](changelog/sprint-2.md) - (date from x until x)** 
-   - Short changes 1
-   - Short changes 2
+- **[Sprint 2](changelog/sprint-2.md) - (24/11/2021 - 30/11/2021)** 
+   - Make the body of snake with length 5
+   - Make the game can run               
+   - Recoding                            
+   - Implement Controller                
+   - Implement Scene Builder             
+   - Implement Snake Pointer             
+   - Implement Start Snake               
+   - Implement Controller Game           
+   - Implement Snake Body                
+   - Implement Game Over Text            
+   - Implement Snake while run           
+   - Implement Collisions                
+   - Implement Food and Random Food Color
+   - Implement Self Destroy              
+   - Implement Score                     
+   - Implement Snake Color               
+   - Implement Set Random Food Spawn     
    
-- **[Sprint 3](changelog/sprint-3.md) - (date from x until x)** 
-   - Short changes 1
-   - Short changes 2
+- **[Sprint 3](changelog/sprint-3.md) - (1/12/2021 - 7/12/2021)** 
+   - Implement Modular                              
+   - Implement Start New Game Button with Space Bar 
+   - Implement Re-Start Game with Enter             
+   - Implement Leaderboard                          
+   - Membuat UML                                    
 
 ## Running The App
 

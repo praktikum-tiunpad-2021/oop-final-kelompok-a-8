@@ -23,7 +23,9 @@
 | 3.2 | Implement Start New Game Button with Space Bar | Rheza   | Pending |
 | 3.3 | Implement Re-Start Game with Enter             | Affan   | Pending |
 | 3.4 | Implement Leaderboard                          | Andyka  | Pending |
+| 3.5 | Membuat UML                                    | Affan   | Pending |
+
 
 ## Retrospective
 
-Sprint kemarin menyelesaikan game agar fungsional. Sprint 3 ingin memperbagus dan mengimplementasi hal yang belum terimplementasi.
+..
