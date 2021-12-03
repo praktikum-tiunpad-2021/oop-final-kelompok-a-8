@@ -1,7 +1,6 @@
 package pbo.project;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.scene.text.Font;
@@ -14,7 +13,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -37,20 +35,16 @@ public class Controller implements Initializable {
 
     private final static int speed = 10; // Kecepata ular
     private int score = 0; // Score
-    
-    private final static int WIDTH = 50; // Lebar layar main
-    private final static int HEIGHT = WIDTH; // Tinggi layar main
-    private final static int CORNER_SIZE = 10;
+
+    private Grid grid = new Grid();
 
     private int foodcolor = 0; // Warna food
     private int foodX = 0; // Absis food
     private int foodY = 0; // Ordinat food
 
-    private Point snakeHead; // Head of snake
-    private Point snakeTail; // Tail of snake
-    private List<Point> snakeBody = new ArrayList<>(); // Body of snake
+    private Snake snake;
     private Dir direction = Dir.left; // First directon of snake
-    
+
     private boolean gameOver = false; // Awal dan akhir game
     private Random rand = new Random(); // Keperluan random
 
@@ -60,7 +54,7 @@ public class Controller implements Initializable {
 
     public void run() {
         try {
-            Canvas c = new Canvas(WIDTH * CORNER_SIZE, HEIGHT * CORNER_SIZE); // Untuk lapak main
+            Canvas c = new Canvas(grid.getWidth() * grid.getCornerSize(), grid.getHeight() * grid.getCornerSize()); // Untuk lapak main
             GraphicsContext gc = c.getGraphicsContext2D(); // graphic context
             SnakeField.getChildren().add(c); // untuk ngambil element scene builder
 
@@ -103,18 +97,13 @@ public class Controller implements Initializable {
                             }
                         }
                         if (key.getCode() == KeyCode.SPACE) {
-                            
+
                         }
                     });
                 }
             }.start();
 
-            // Add start snake parts
-            for (int i = 0; i < 5; i++) {
-                snakeBody.add(new Point(WIDTH/2, HEIGHT/2));
-            }
-            snakeHead = snakeBody.get(0);
-            snakeTail = snakeBody.get(snakeBody.size()-1);
+            snake = new Snake();
             generateFood();
 
         } catch (Exception e) {
@@ -131,28 +120,25 @@ public class Controller implements Initializable {
         }
         drawBackground(gc);
         drawFood(gc);
-        drawSnake(gc);
+        snake.drawSnake(gc);
         drawScore(gc);
 
         // Set ular berjalan
-        for (int i = snakeBody.size() - 1; i >= 1; i--) {
-            snakeBody.get(i).x = snakeBody.get(i - 1).x;
-            snakeBody.get(i).y = snakeBody.get(i - 1).y;
-        }
+        snake.snakeMove();
 
         // Direction
         switch (direction) {
             case up:
-                moveUp();
+                snake.moveUp();
                 break;
             case down:
-                moveDown();
+                snake.moveDown();
                 break;
             case left:
-                moveLeft();
+                snake.moveLeft();
                 break;
             case right:
-                moveRight();
+                snake.moveRight();
                 break;
 
         }
@@ -162,26 +148,26 @@ public class Controller implements Initializable {
     }
 
     private void drawBackground(GraphicsContext gc) {
-        for (int i = 0; i < WIDTH; i++) {
-            for (int j = 0; j < HEIGHT; j++) {
-                if ((i+j) % 2 == 0) {
+        for (int i = 0; i < grid.getWidth(); i++) {
+            for (int j = 0; j < grid.getHeight(); j++) {
+                if ((i + j) % 2 == 0) {
                     gc.setFill(Color.LIGHTGREEN);
                 } else {
                     gc.setFill(Color.LIGHTGREEN);
                 }
-                gc.fillRect(i * CORNER_SIZE, j * CORNER_SIZE, WIDTH * CORNER_SIZE, HEIGHT * CORNER_SIZE);
+                gc.fillRect(i * grid.getCornerSize(), j * grid.getCornerSize(), grid.getWidth() * grid.getCornerSize(),
+                        grid.getHeight() * grid.getCornerSize());
             }
         }
     }
 
     private void generateFood() {
-        start: 
-        while (true) {
-            foodX = rand.nextInt(WIDTH);
-            foodY = rand.nextInt(HEIGHT);
+        start: while (true) {
+            foodX = rand.nextInt(grid.getWidth());
+            foodY = rand.nextInt(grid.getHeight());
 
-            for (Point c : snakeBody) {
-                if (c.x == foodX && c.y == foodY) {
+            for (Point c : snake.getSnake()) {
+                if (c.getX() == foodX && c.getY() == foodY) {
                     continue start;
                 }
             }
@@ -199,65 +185,28 @@ public class Controller implements Initializable {
                 break;
         }
         gc.setFill(cc);
-        gc.fillOval(foodX * CORNER_SIZE, foodY * CORNER_SIZE, CORNER_SIZE, CORNER_SIZE);
-    }
-
-    private void drawSnake(GraphicsContext gc) {
-        for (int i = 0; i < snakeBody.size(); i++) {
-            if (i == 0) {
-                // Warna Border Head
-                gc.setFill(Color.BLACK);
-                gc.fillOval(snakeHead.x * CORNER_SIZE, snakeHead.y * CORNER_SIZE, CORNER_SIZE - 1, CORNER_SIZE - 1);
-                // Warna Head
-                gc.setFill(Color.WHITE);
-                gc.fillOval(snakeHead.x * CORNER_SIZE, snakeHead.y * CORNER_SIZE, CORNER_SIZE - 2, CORNER_SIZE - 2);
-            } else if (i == snakeBody.size()-1) {
-                // Warna border Tail
-                gc.setFill(Color.BLACK);
-                gc.fillRect(snakeBody.get(snakeBody.size()-1).x * CORNER_SIZE, snakeBody.get(snakeBody.size()-1).y * CORNER_SIZE, CORNER_SIZE - 1, CORNER_SIZE - 1);
-                // Warna Tail
-                gc.setFill(Color.WHITE);
-                gc.fillRect(snakeBody.get(snakeBody.size()-1).x * CORNER_SIZE, snakeBody.get(snakeBody.size()-1).y * CORNER_SIZE, CORNER_SIZE - 1, CORNER_SIZE - 1);
-            } else {
-                // Warna border Body
-                gc.setFill(Color.BLACK);
-                gc.fillRect(snakeBody.get(i).x * CORNER_SIZE, snakeBody.get(i).y * CORNER_SIZE, CORNER_SIZE - 1, CORNER_SIZE - 1);
-                // Warna Body
-                gc.setFill(Color.GREEN);
-                gc.fillRect(snakeBody.get(i).x * CORNER_SIZE, snakeBody.get(i).y * CORNER_SIZE, CORNER_SIZE - 2, CORNER_SIZE - 2);
-            }
-        }
-    }
-
-    private void moveUp() {
-        snakeHead.y--;
-    }
-    private void moveDown() {
-        snakeHead.y++;
-    }
-    private void moveRight() {
-        snakeHead.x++;
-    }
-    private void moveLeft() {
-        snakeHead.x--;
+        gc.fillOval(foodX * grid.getCornerSize(), foodY * grid.getCornerSize(), grid.getCornerSize(),
+                grid.getCornerSize());
     }
 
     public void gameOver() {
-        if (snakeHead.x < 0 || snakeHead.y < 0 || snakeHead.x > WIDTH-1 || snakeHead.y > HEIGHT-1) {
+        if (snake.getHead().getX() < 0 || snake.getHead().getY() < 0 || snake.getHead().getX() > grid.getWidth() - 1
+                || snake.getHead().getY() > grid.getHeight() - 1) {
             gameOver = true;
         }
 
         // Self Destroy
-        for (int i = 1; i < snakeBody.size(); i++) {
-            if (snakeHead.x == snakeBody.get(i).x && snakeHead.y == snakeBody.get(i).y) {
+        for (int i = 1; i < snake.getSize(); i++) {
+            if (snake.getHead().getX() == snake.getBody(i).getX()
+                    && snake.getHead().getY() == snake.getBody(i).getY()) {
                 gameOver = true;
             }
         }
     }
 
     private void eatFood() {
-        if (foodX == snakeHead.x && foodY == snakeHead.y) {
-            snakeBody.add(new Point(-1, -1));
+        if (foodX == snake.getHead().getX() && foodY == snake.getHead().getY()) {
+            snake.add(new Point(-1, -1));
             generateFood();
             score += 10;
         }
