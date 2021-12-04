@@ -27,7 +27,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'pbo.project.Main'
+    mainClass = 'SnakeGame.Gui.Main'
 }
 
 javafx{

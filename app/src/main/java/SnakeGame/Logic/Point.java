@@ -1,4 +1,4 @@
-package pbo.project;
+package SnakeGame.Logic;
 
 public class Point {
     private int x;

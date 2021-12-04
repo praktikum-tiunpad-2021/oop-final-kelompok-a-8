@@ -1,4 +1,4 @@
-package pbo.project;
+package SnakeGame.Gui;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
