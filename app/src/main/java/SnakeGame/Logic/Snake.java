@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-// import javafx.scene.canvas.GraphicsContext;
-// import javafx.scene.paint.Color;
-// import javafx.scene.text.Font;
-
 public class Snake {
 
     private List<Point> snakeBody; // Body of snake
