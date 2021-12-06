@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="755.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SnakeGame.Gui.Controller">
+<AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="755.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SnakeGame.Gui.Controller">
    <children>
       <FlowPane fx:id="SnakeField" layoutX="14.0" layoutY="14.0" prefHeight="500.0" prefWidth="500.0" />
       <Text fontSmoothingType="LCD" layoutX="569.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Snake">

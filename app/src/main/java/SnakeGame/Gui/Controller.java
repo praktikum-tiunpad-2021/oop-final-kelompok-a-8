@@ -38,7 +38,7 @@ public class Controller implements Initializable {
 
     }
 
-    private final static int speed = 10; // Kecepatan ular
+    private final static int speed = 8; // Kecepatan ular
 
     private Food food = new Food();
     private Score score = new Score();
