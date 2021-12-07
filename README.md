@@ -51,9 +51,16 @@ TO;DO with steps
 
 ## Classes Used
 
-TO;DO
+- Controller
+- Main
+- Food
+- Grid
+- Painter
+- Point
+- Score
+- Snake
 
-UML image here
+<img src="UML/UML%20SnakeGame%20Revisi.jpg">
 
 ## Notable Assumption and Design App Details
 
