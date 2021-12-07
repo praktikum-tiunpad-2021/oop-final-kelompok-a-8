@@ -2,12 +2,13 @@ package SnakeGame.Logic;
 
 import java.util.Random;
 
-public class Food {
+public class Food extends Snake {
     private int foodX;
     private int foodY;
     private int foodColor;
 
     public Food() {
+        super();
         this.foodX = 0;
         this.foodY = 0;
         this.foodColor = 0;
@@ -25,13 +26,13 @@ public class Food {
         return this.foodColor;
     }
 
-    public void generateFood(Snake snake, Random rand) {
+    public void generateFood(Random rand) {
         start: while (true) {
             this.foodX = rand.nextInt(Grid.getWidth());
             this.foodY = rand.nextInt(Grid.getHeight());
 
-            for (Point c : snake.getSnake()) {
-                if (c.getX() == foodX && c.getY() == foodY) {
+            for (Point snake : snakeBody) {
+                if (snake.x == foodX && snake.y == foodY) {
                     continue start;
                 }
             }

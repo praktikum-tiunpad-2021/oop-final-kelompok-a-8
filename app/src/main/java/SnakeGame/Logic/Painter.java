@@ -80,4 +80,10 @@ public class Painter {
         gc.setFont(new Font("Arial", 15));
         gc.fillText("Score: " + score.getScore(), 5, 20);
     }
+
+    public static void drawGameOver(GraphicsContext gc) {
+        gc.setFill(Color.RED);
+        gc.setFont(new Font("", 50));
+        gc.fillText("GAME OVER", 100, 250);
+    }
 }

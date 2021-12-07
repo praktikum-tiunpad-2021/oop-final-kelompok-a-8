@@ -11,13 +11,14 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.FlowPane;
+
 import java.util.Random;
 
 import SnakeGame.Logic.Snake;
 import SnakeGame.Logic.Score;
-import SnakeGame.Logic.Direction;
 import SnakeGame.Logic.Food;
 import SnakeGame.Logic.Grid;
+import SnakeGame.Logic.Painter;
 
 /**
  *
@@ -38,13 +39,18 @@ public class Controller implements Initializable {
 
     }
 
-    private final static int speed = 10; // Kecepatan ular
+    private final static int speed = 5; // Kecepatan ular
 
     private Food food = new Food();
     private Score score = new Score();
     private Snake snake;
-    private Direction direction = new Direction();
     private Random rand = new Random(); // Keperluan random
+
+    public enum Dir {
+        left, right, up, down
+    }
+
+    Dir direction = Dir.left;
 
     public void run() {
 
@@ -60,50 +66,78 @@ public class Controller implements Initializable {
                 public void handle(long now) {
                     if (lastTick == 0) {
                         lastTick = now;
-                        direction.tick(snake, score, food, rand, gc);
+                        tick(gc);
                         return;
                     }
 
                     if (now - lastTick > 1000000000 / speed) {
                         lastTick = now;
-                        direction.tick(snake, score, food, rand, gc);
+                        tick(gc);
                     }
 
-                    // controller game
+                    // Controller game
                     SnakeField.getScene().addEventFilter(KeyEvent.KEY_PRESSED, key -> {
                         if (key.getCode() == KeyCode.UP) {
-                            if (direction.currentDirection() != direction.dirDown()) {
-                                direction.setDirection(direction.dirUp());
-                                ;
+                            if (direction != Dir.down) {
+                                direction = Dir.up;
                             }
                         }
                         if (key.getCode() == KeyCode.LEFT) {
-                            if (direction.currentDirection() != direction.dirRight()) {
-                                direction.setDirection(direction.dirLeft());
+                            if (direction != Dir.right) {
+                                direction = Dir.left;
                             }
                         }
                         if (key.getCode() == KeyCode.DOWN) {
-                            if (direction.currentDirection() != direction.dirUp()) {
-                                direction.setDirection(direction.dirDown());
+                            if (direction != Dir.up) {
+                                direction = Dir.down;
                             }
                         }
                         if (key.getCode() == KeyCode.RIGHT) {
-                            if (direction.currentDirection() != direction.dirLeft()) {
-                                direction.setDirection(direction.dirRight());
+                            if (direction != Dir.left) {
+                                direction = Dir.right;
                             }
-                        }
-                        if (key.getCode() == KeyCode.SPACE) {
-
                         }
                     });
                 }
             }.start();
 
             snake = new Snake();
-            food.generateFood(snake, rand);
+            food.generateFood(rand);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void tick(GraphicsContext gc) {
+        if (snake.isGameOver() == true) {
+            Painter.drawGameOver(gc);
+            return;
+        }
+        Painter.drawBackground(gc);
+        Painter.drawFood(gc, food, rand);
+        Painter.drawSnake(snake, gc);
+        Painter.drawScore(score, gc);
+
+        // Set ular berjalan
+        snake.snakeMove();
+
+        // Direction
+        switch (direction) {
+            case up:
+                snake.moveUp();
+                break;
+            case down:
+                snake.moveDown();
+                break;
+            case left:
+                snake.moveLeft();
+                break;
+            case right:
+                snake.moveRight();
+                break;
+        }
+        snake.gameOver();
+        snake.eatFood(score, food, rand);
     }
 }
